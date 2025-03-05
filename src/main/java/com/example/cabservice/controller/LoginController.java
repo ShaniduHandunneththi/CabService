@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-public class AdminController extends HttpServlet {
+public class LoginController extends HttpServlet {
 
     private AdminService adminService;
 
@@ -41,7 +41,7 @@ public class AdminController extends HttpServlet {
             session.setAttribute("admin", admin);
             response.sendRedirect("admin_dashboard.jsp");
         } else {
-            response.sendRedirect("admin_login.jsp?error=Invalid credentials");
+            response.sendRedirect("login.jsp?error=Invalid credentials");
         }
     }
 
@@ -51,6 +51,6 @@ public class AdminController extends HttpServlet {
         if (session != null) {
             session.invalidate();
         }
-        response.sendRedirect("admin_login.jsp?message=Logged out successfully");
+        response.sendRedirect("login.jsp?message=Logged out successfully");
     }
 }

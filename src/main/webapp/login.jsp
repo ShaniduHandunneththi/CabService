@@ -12,7 +12,7 @@
 </head>
 <body>
 <h2>Admin Login</h2>
-<form action="admin?action=login" method="post">
+<form action="auth?action=login" method="post">
     <input type="hidden" name="action" value="login">
     Username: <input type="text" name="username" required><br>
     Password: <input type="password" name="password" required><br>

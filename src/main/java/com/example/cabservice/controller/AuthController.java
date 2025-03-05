@@ -45,10 +45,10 @@ public class AuthController extends HttpServlet {
             session.setAttribute("role", user.getRole());
 
             // Redirect based on role
-            if ("ADMIN".equals(user.getRole())) {
-                response.sendRedirect("admin/dashboard.jsp");
-            } else if ("CUSTOMER".equals(user.getRole())) {
-                response.sendRedirect("customer/home.jsp");
+            if ("Admin".equals(user.getRole())) {
+                response.sendRedirect("admin_dashboard.jsp");
+            } else if ("Customer".equals(user.getRole())) {
+                response.sendRedirect("customer_dashboard.jsp");
             } else if ("DRIVER".equals(user.getRole())) {
                 response.sendRedirect("driver/home.jsp");
             } else {
