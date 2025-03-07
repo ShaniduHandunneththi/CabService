@@ -67,4 +67,5 @@ public class AuthController extends HttpServlet {
         }
         response.sendRedirect("login.jsp?message=Logged out successfully");
     }
+
 }
