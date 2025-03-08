@@ -21,5 +21,10 @@
 <p style="color:red;">
     <%= request.getParameter("error") != null ? request.getParameter("error") : "" %>
 </p>
+
+<div style="margin-top: 10px;">
+    <p>Don't have an account? <a href="user-register.jsp">Register here</a></p>
+</div>
 </body>
+
 </html>
