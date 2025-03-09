@@ -83,6 +83,19 @@ public class BookingController extends HttpServlet {
 
         }
     }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Integer driverId = (Integer) session.getAttribute("driverId");
+
+        if (driverId != null) {
+            List<Booking> bookings = bookingService.getBookingsByDriver(driverId);
+            request.setAttribute("bookings", bookings);
+            request.getRequestDispatcher("view_assigned_rides.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("login.jsp?error=Please log in as a driver.");
+        }
+    }
+
 
 }
 

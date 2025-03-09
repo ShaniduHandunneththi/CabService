@@ -49,8 +49,8 @@ public class AuthController extends HttpServlet {
                 response.sendRedirect("admin_dashboard.jsp");
             } else if ("Customer".equals(user.getRole())) {
                 response.sendRedirect("customer_dashboard.jsp");
-            } else if ("DRIVER".equals(user.getRole())) {
-                response.sendRedirect("driver/home.jsp");
+            } else if ("Driver".equals(user.getRole())) {
+                response.sendRedirect("driver_dashboard.jsp");
             } else {
                 response.sendRedirect("index.jsp");
             }
