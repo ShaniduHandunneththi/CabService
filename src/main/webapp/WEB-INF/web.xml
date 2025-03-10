@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    <servlet>
+        <servlet-name>adminController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminController</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>authController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.AuthController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>authController</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>billingController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.BillingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>billingController</servlet-name>
+        <url-pattern>/billing</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>BookingController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.BookingController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookingController</servlet-name>
+        <url-pattern>/BookingController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>customerController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.CustomerController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>customerController</servlet-name>
+        <url-pattern>/customer</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.RegisterController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>driverController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.DriverController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>driverController</servlet-name>
+        <url-pattern>/driver</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>vehicleController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.VehicleController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vehicleController</servlet-name>
+        <url-pattern>/vehicle</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>profileController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.ProfileController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>profileController</servlet-name>
+        <url-pattern>/Profile</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>driverBookingController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.DriverBookingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>driverBookingController</servlet-name>
+        <url-pattern>/driver-bookings</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>rideHistoryController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.RideHistoryController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>rideHistoryController</servlet-name>
+        <url-pattern>/ride-history</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>driverprofileController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.DriverProfileController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>driverprofileController</servlet-name>
+        <url-pattern>/driver-profile</url-pattern>
+    </servlet-mapping>
+
+
+
+</web-app>
