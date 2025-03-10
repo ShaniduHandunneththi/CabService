@@ -67,23 +67,37 @@ public class BookingController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        HttpSession session = request.getSession();
-        int customerID = (int) session.getAttribute("userID");
+        HttpSession session = request.getSession(false); // Do NOT create a new session
+
+        // Debugging: Print session attributes
+        System.out.println("Session userID: " + session.getAttribute("userID"));
+        System.out.println("Session username: " + session.getAttribute("username"));
+
+        if (session == null || session.getAttribute("userID") == null) {
+            response.sendRedirect("login.jsp?error=session_expired");
+            return;
+        }
+
+        int customerID = (Integer) session.getAttribute("userID"); // Retrieve customer ID
 
         if ("book".equals(action)) {
             String pickupLocation = request.getParameter("pickupLocation");
             String dropLocation = request.getParameter("dropLocation");
             String dateTimeStr = request.getParameter("bookingDate");
 
-            LocalDateTime bookingDate = LocalDateTime.parse(dateTimeStr, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"));
+            try {
+                LocalDateTime bookingDate = LocalDateTime.parse(dateTimeStr, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"));
+                Booking booking = new Booking(customerID, pickupLocation, dropLocation, "Pending");
 
-            Booking booking = new Booking(customerID, pickupLocation, dropLocation, "Pending");
-            bookingService.bookRide(booking);
-            response.sendRedirect("customer_dashboard.jsp");
-
+                bookingService.bookRide(booking);
+                response.sendRedirect("customer_dashboard.jsp?success=booked");
+            } catch (Exception e) {
+                response.sendRedirect("bookaride.jsp?error=invalid_date");
+            }
         }
     }
-
 }
+
+
 
 
