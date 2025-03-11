@@ -35,7 +35,7 @@ public class DriverDAO {
 
     public List<Driver> getAllDrivers() {
         List<Driver> drivers = new ArrayList<>();
-        String sql = "SELECT UserID, Username, Role FROM users WHERE Role = 'Driver'";
+        String sql = "SELECT * FROM users WHERE Role = 'Driver'";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -47,8 +47,10 @@ public class DriverDAO {
                         rs.getString("Password"),
                         rs.getString("Role"),
                         rs.getString("Phone"),
-                        rs.getString("LicenseNumber")
-                        ));
+                        rs.getString("LicenseNumber"),
+                        rs.getString("Email"),
+                        rs.getString("status")
+                ));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -67,8 +69,9 @@ public class DriverDAO {
         }
         return false;
     }
+
     public boolean registerDriver(Driver driver) {
-        String sql = "INSERT INTO users (Username, Password, Role, Email, Phone, licenseNumber, CreatedAt) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+        String sql = "INSERT INTO users (Username, Password, Role, Email, Phone, licenseNumber, status, CreatedAt) VALUES (?, ?, ?, ?, ?, ?, NOW())";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, driver.getUsername());
@@ -77,6 +80,7 @@ public class DriverDAO {
             stmt.setString(4, driver.getEmail());
             stmt.setString(5, driver.getPhone());
             stmt.setString(6, driver.getLicenseNumber());
+            stmt.setString(7, "Active");
 
             int rowsInserted = stmt.executeUpdate();
             return rowsInserted > 0;
@@ -86,4 +90,22 @@ public class DriverDAO {
         }
     }
 
+    public boolean updateDriverStatus(int driverID, String status) {
+        String sql = "UPDATE users SET status = ? WHERE UserID = ? AND Role = 'Driver'";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, status);
+            stmt.setInt(2, driverID);
+
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0; // Returns true if update successful
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
 }

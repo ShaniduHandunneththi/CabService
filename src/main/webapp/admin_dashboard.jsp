@@ -18,9 +18,9 @@
 <h2>Welcome, <%= admin.getUsername() %></h2>
 <ul>
     <li><a href="booking.jsp">Manage Bookings</a></li>
-    <li><a href="managecustomers.jsp">Manage Customers</a></li>
-    <li><a href="managedrivers.jsp">Manage Drivers</a></li>
-    <li><a href="managevehicles.jsp">Manage Vehicles</a></li>
+    <li><a href="customer?action=list">Manage Customers</a></li>
+    <li><a href="driver">Manage Drivers</a></li>
+    <li><a href="vehicle?action=list">Manage Vehicles</a></li>
     <li><a href="viewreports.jsp">View Reports</a></li>
     <li>
         <form action="admin" method="post">

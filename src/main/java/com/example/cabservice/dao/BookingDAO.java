@@ -46,7 +46,7 @@ public class BookingDAO {
         }
     }
     public void addBooking(Booking booking) {
-        String sql = "INSERT INTO bookings (CustomerID, PickupLocation, DropLocation, BookingDate, Status) VALUES (?, ?, ?, now(), ?)";
+        String sql = "INSERT INTO bookings (CustomerID, PickupLocation, DropLocation, BookingDate, Status,DriverID,VehicleID) VALUES (?, ?, ?, now(), ?,?,?)";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)){
 
@@ -54,6 +54,8 @@ public class BookingDAO {
             ps.setString(2, booking.getPickupLocation());
             ps.setString(3, booking.getDropLocation());
             ps.setString(4, booking.getStatus());
+            ps.setInt(5, booking.getDriverID());
+            ps.setInt(6, booking.getVehicleID());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

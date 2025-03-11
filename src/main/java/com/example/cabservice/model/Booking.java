@@ -24,11 +24,12 @@ public class Booking {
         this.bookingDate = bookingDate;
         this.status = status;
     }
-    public Booking(int customerID, String pickupLocation, String dropLocation, String status) {
+    public Booking(int customerID, String pickupLocation, String dropLocation,int vehicleID, String status) {
         this.customerID = customerID;
         this.pickupLocation = pickupLocation;
         this.dropLocation = dropLocation;
         this.status = status;
+        this.vehicleID = vehicleID;
     }
 
     // Getters and Setters

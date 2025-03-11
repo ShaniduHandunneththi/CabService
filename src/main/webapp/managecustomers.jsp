@@ -11,8 +11,7 @@
 <%@ page import="com.example.cabservice.model.Customer" %>
 
 <%
-    CustomerService customerService = new CustomerService();
-    List<Customer> customers = customerService.getAllCustomers();
+    List<Customer> customers = (List<Customer>) request.getAttribute("customers");
 %>
 
 <!DOCTYPE html>
@@ -20,31 +19,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Manage Customers</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Include CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h2>Manage Customers</h2>
+<h2>Customer Management</h2>
 
 <table border="1">
     <tr>
-        <th>User ID</th>
+        <th>Customer ID</th>
         <th>Username</th>
-        <th>Role</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Status</th>
         <th>Actions</th>
     </tr>
-    <% for (Customer customer : customers) { %>
+    <% if (customers != null) {
+        for (Customer customer : customers) { %>
     <tr>
         <td><%= customer.getUserID() %></td>
         <td><%= customer.getUsername() %></td>
+        <td><%= customer.getEmail() %></td>
+        <td><%= customer.getPhone() %></td>
+        <td><%= customer.getStatus() %></td>
         <td>
-            <a href="CustomerController?action=edit&id=<%= customer.getUserID() %>">Edit</a> |
-            <a href="CustomerController?action=delete&id=<%= customer.getUserID() %>"
-               onclick="return confirm('Are you sure you want to delete this customer?');">Delete</a>
+            <form action="customer" method="post">
+                <input type="hidden" name="action" value="updateStatus">
+                <input type="hidden" name="customerID" value="<%= customer.getUserID() %>">
+
+                <select name="status">
+                    <option value="Active" <% if("Active".equals(customer.getStatus())) { %>selected<% } %>>Active</option>
+                    <option value="InActive" <% if("Inactive".equals(customer.getStatus())) { %>selected<% } %>>Inactive</option>
+                    <option value="Banned" <% if("Suspended".equals(customer.getStatus())) { %>selected<% } %>>Ban</option>
+                </select>
+
+                <button type="submit">Update</button>
+            </form>
+
         </td>
     </tr>
-    <% } %>
+    <% } } %>
 </table>
-
-<a href="add_customer.jsp">Add New Customer</a>
 </body>
 </html>

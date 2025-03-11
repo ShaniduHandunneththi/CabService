@@ -8,17 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VehicleDAO {
-    private Connection connection;
-
-    public VehicleDAO(Connection connection) {
-        this.connection = connection;
-    }
 
     public List<Vehicle> getAllVehicles() {
         List<Vehicle> vehicles = new ArrayList<>();
         String sql = "SELECT * FROM vehicles";
 
-        try (PreparedStatement stmt = connection.prepareStatement(sql);
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
@@ -36,10 +32,24 @@ public class VehicleDAO {
         return vehicles;
     }
 
+    public void updateVehicleStatus(int vehicleID, String status) {
+        String sql = "UPDATE vehicles SET Status = ? WHERE VehicleID = ?";
+        try (Connection conn = DBConnection.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);) {
+
+            pstmt.setString(1, status);
+            pstmt.setInt(2, vehicleID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void deleteVehicle(int vehicleID) {
         String sql = "DELETE FROM vehicles WHERE VehicleID = ?";
 
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);) {
             stmt.setInt(1, vehicleID);
             stmt.executeUpdate();
         } catch (SQLException e) {

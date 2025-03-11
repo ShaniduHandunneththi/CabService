@@ -109,6 +109,14 @@
         <url-pattern>/driver-profile</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>bookingController</servlet-name>
+        <servlet-class>com.example.cabservice.controller.BookingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bookingController</servlet-name>
+        <url-pattern>/booking</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

@@ -26,7 +26,7 @@
         <th>Date</th>
         <th>Driver</th>
         <th>Status</th>
-        <th>Actions</th>
+
     </tr>
 
     <% if(bookings != null){
@@ -38,16 +38,11 @@
         <td><%= booking.getBookingDate() %></td>
         <td><%= booking.getDriverID() %></td>
         <td><%= booking.getStatus() %></td>
-        <td>
-            <% if ("Completed".equals(booking.getStatus())) { %>
-            <a href="BookingController?action=cancel&id=<%= booking.getBookingID() %>"
-               onclick="return confirm('Are you sure you want to cancel this booking?');">Cancel</a>
-            <% } %>
-        </td>
+
     </tr>
     <% }} %>
 </table>
 
-<a href="bookaride.jsp">Book a New Ride</a>
+
 </body>
 </html>

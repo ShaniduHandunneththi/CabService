@@ -33,7 +33,6 @@
         <th>Drop Location</th>
         <th>Booking Date</th>
         <th>Status</th>
-        <th>Actions</th>
     </tr>
     <% for (Booking booking : bookings) { %>
     <tr>
@@ -45,14 +44,10 @@
         <td><%= booking.getDropLocation() %></td>
         <td><%= booking.getBookingDate() %></td>
         <td><%= booking.getStatus() %></td>
-        <td>
-            <a href="BookingController?action=edit&id=<%= booking.getBookingID() %>">Edit</a> |
-            <a href="BookingController?action=delete&id=<%= booking.getBookingID() %>" onclick="return confirm('Are you sure?');">Delete</a>
-        </td>
+
     </tr>
     <% } %>
 </table>
 
-<a href="add_booking.jsp">Add New Booking</a>
 </body>
 </html>

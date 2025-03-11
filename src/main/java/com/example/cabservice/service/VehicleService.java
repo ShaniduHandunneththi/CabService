@@ -6,16 +6,15 @@ import com.example.cabservice.model.Vehicle;
 import java.util.List;
 
 public class VehicleService {
-    private VehicleDAO vehicleDAO;
+    private VehicleDAO vehicleDAO = new VehicleDAO();
 
-    public VehicleService(VehicleDAO vehicleDAO) {
-        this.vehicleDAO = vehicleDAO;
-    }
 
     public List<Vehicle> getAllVehicles() {
         return vehicleDAO.getAllVehicles();
     }
-
+    public void updateVehicleStatus(int vehicleID, String status) {
+        vehicleDAO.updateVehicleStatus(vehicleID, status);
+    }
     public void deleteVehicle(int vehicleID) {
         vehicleDAO.deleteVehicle(vehicleID);
     }

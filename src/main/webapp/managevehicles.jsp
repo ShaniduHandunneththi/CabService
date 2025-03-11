@@ -38,9 +38,19 @@
         <td><%= vehicle.getCapacity() %></td>
         <td><%= vehicle.getStatus() %></td>
         <td>
-            <a href="VehicleController?action=edit&id=<%= vehicle.getVehicleID() %>">Edit</a> |
-            <a href="VehicleController?action=delete&id=<%= vehicle.getVehicleID() %>"
-               onclick="return confirm('Are you sure you want to delete this vehicle?');">Delete</a>
+            <form action="vehicle" method="post">
+
+                <input type="hidden" name="vehicleID" value="<%= vehicle.getVehicleID() %>">
+
+                <select name="status">
+                    <option value="Available" <% if("Available".equals(vehicle.getStatus())) { %>selected<% } %>>Available</option>
+                    <option value="In Service" <% if("In Service".equals(vehicle.getStatus())) { %>selected<% } %>>In Service</option>
+                    <option value="Booked" <% if("Booked".equals(vehicle.getStatus())) { %>selected<% } %>>Booked</option>
+                </select>
+
+                <button type="submit">Update</button>
+            </form>
+
         </td>
     </tr>
     <%

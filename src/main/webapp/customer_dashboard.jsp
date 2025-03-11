@@ -17,8 +17,8 @@
 <h2>Welcome, <%= Customer.getUsername() %></h2>
 
 <ul>
-    <li><a href="bookaride.jsp">Book a Ride</a></li>
-    <li><a href="managebookings.jsp">View & Manage Bookings</a></li>
+    <li><a href="booking?action=add">Book a Ride</a></li>
+    <li><a href="booking?action=customer_view">View & Manage Bookings</a></li>
     <li><a href="manageprofile.jsp">Profile & Account Management</a></li>
 </ul>
 

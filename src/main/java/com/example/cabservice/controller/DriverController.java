@@ -33,7 +33,7 @@ public class DriverController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        int userID = Integer.parseInt(request.getParameter("id"));
+        int userID = Integer.parseInt(request.getParameter("driverID"));
 
         if ("delete".equals(action)) {
             driverService.deleteDriver(userID);
@@ -53,9 +53,18 @@ public class DriverController extends HttpServlet {
             } else {
                 response.sendRedirect("register_driver.jsp?error=Registration failed!");
             }
+        } else if ("updateStatus".equals(action)) {
+            int driverID = Integer.parseInt(request.getParameter("driverID"));
+            String status = request.getParameter("status");
+
+            boolean updated = driverService.changeDriverStatus(driverID, status);
+            if (updated) {
+                response.sendRedirect("driver?action=list&success=status_updated");
+            } else {
+                response.sendRedirect("driver?action=list&error=update_failed");
+            }
         }
 
-        response.sendRedirect("managedrivers");
     }
 
 }

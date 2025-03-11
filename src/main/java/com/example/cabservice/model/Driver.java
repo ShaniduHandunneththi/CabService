@@ -9,6 +9,7 @@ public class Driver {
     private String licenseNumber;
     private String email;
     private String vehicleAssigned;
+    private String status;
 
     public Driver() {
     }
@@ -29,6 +30,17 @@ public class Driver {
         this.role = role;
         this.phone = phone;
         this.licenseNumber = licenseNumber;
+    }
+
+    public Driver(int userID, String username, String password, String role, String phone, String licenseNumber, String email, String status) {
+        this.userID = userID;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.phone = phone;
+        this.licenseNumber = licenseNumber;
+        this.email = email;
+        this.status = status;
     }
 
     public Driver(int userID, String username, String password, String role, String phone, String licenseNumber, String email) {
@@ -95,5 +107,13 @@ public class Driver {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
