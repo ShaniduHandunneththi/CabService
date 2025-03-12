@@ -19,7 +19,7 @@ public class RegisterController extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("name");
+        String username = request.getParameter("username");
         String phone = request.getParameter("phone");
 //        String address = request.getParameter("address");
 
@@ -29,10 +29,6 @@ public class RegisterController extends HttpServlet {
 
         // Create a generic User object (not customer-specific)
         User user = new User(username, phone, email, password);
-        user.setUsername(username);
-        user.setPhoneNumber(phone);
-        user.setEmail(email);
-        user.setPassword(password);
 //        user.setRole(role);
 
         if(userService.registerUser(user)){

@@ -1,6 +1,7 @@
 package com.example.cabservice.dao;
 
 import com.example.cabservice.model.Driver;
+import com.example.cabservice.model.Vehicle;
 import com.example.cabservice.utils.DBConnection;
 
 import java.sql.*;
@@ -71,7 +72,7 @@ public class DriverDAO {
     }
 
     public boolean registerDriver(Driver driver) {
-        String sql = "INSERT INTO users (Username, Password, Role, Email, Phone, licenseNumber, status, CreatedAt) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+        String sql = "INSERT INTO users (Username, Password, Role, Email, Phone, licenseNumber, status, CreatedAt) VALUES (?, ?, ?, ?, ?, ?,?, NOW())";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, driver.getUsername());
@@ -108,4 +109,5 @@ public class DriverDAO {
         }
 
     }
-}
+
+    }

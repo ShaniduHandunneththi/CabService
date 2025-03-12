@@ -11,10 +11,15 @@ public class Booking {
     private String dropLocation;
     private Date bookingDate;
     private String status;
+    private double distance;
+
+
+
+    private double fare;
 
     public Booking() {}
 
-    public Booking(int bookingID, int customerID, int driverID, int vehicleID, String pickupLocation, String dropLocation, Date bookingDate, String status) {
+    public Booking(int bookingID, int customerID, int driverID, int vehicleID, String pickupLocation, String dropLocation,double distance, double fare, Date bookingDate, String status) {
         this.bookingID = bookingID;
         this.customerID = customerID;
         this.driverID = driverID;
@@ -23,6 +28,8 @@ public class Booking {
         this.dropLocation = dropLocation;
         this.bookingDate = bookingDate;
         this.status = status;
+        this.distance = distance;
+        this.fare = fare;
     }
     public Booking(int customerID, String pickupLocation, String dropLocation,int vehicleID, String status) {
         this.customerID = customerID;
@@ -30,6 +37,15 @@ public class Booking {
         this.dropLocation = dropLocation;
         this.status = status;
         this.vehicleID = vehicleID;
+    }
+
+    public Booking(int customerID, String pickupLocation, String dropLocation, int vehicleID, double distance, String pending) {
+        this.customerID = customerID;
+        this.pickupLocation = pickupLocation;
+        this.dropLocation = dropLocation;
+        this.vehicleID = vehicleID;
+        this.distance = distance;
+
     }
 
     // Getters and Setters
@@ -56,4 +72,9 @@ public class Booking {
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+    public double getDistance() { return distance; }
+    public void setDistance(double distance) { this.distance = distance; }
+
+    public double getFare() { return fare; }
+    public void setFare(double fare) { this.fare = fare; }
 }

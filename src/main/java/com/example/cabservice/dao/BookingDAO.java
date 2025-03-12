@@ -46,16 +46,20 @@ public class BookingDAO {
         }
     }
     public void addBooking(Booking booking) {
-        String sql = "INSERT INTO bookings (CustomerID, PickupLocation, DropLocation, BookingDate, Status,DriverID,VehicleID) VALUES (?, ?, ?, now(), ?,?,?)";
+        String sql = "INSERT INTO bookings (CustomerID, PickupLocation, DropLocation, BookingDate, distance, fare, Status, DriverID, VehicleID)" +
+                " VALUES (?, ?, ?, now(), ?, ?, ?, ?, ?)";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)){
+
 
             ps.setInt(1, booking.getCustomerID());
             ps.setString(2, booking.getPickupLocation());
             ps.setString(3, booking.getDropLocation());
-            ps.setString(4, booking.getStatus());
-            ps.setInt(5, booking.getDriverID());
-            ps.setInt(6, booking.getVehicleID());
+            ps.setDouble(4, booking.getDistance());
+            ps.setDouble(5, booking.getFare());
+            ps.setString(6, "Pending");
+            ps.setInt(7, booking.getDriverID());
+            ps.setInt(8, booking.getVehicleID());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -117,6 +121,8 @@ public class BookingDAO {
                         rs.getInt("VehicleID"),
                         rs.getString("PickupLocation"),
                         rs.getString("DropLocation"),
+                        rs.getDouble("distance"),
+                        rs.getDouble("fare"),
                         rs.getDate("BookingDate"),
                         rs.getString("Status")
                 );
@@ -126,6 +132,20 @@ public class BookingDAO {
             e.printStackTrace();
         }
         return bookings;
+    }
+    public boolean updateStatus(int bookingID, String status) {
+        String query = "UPDATE bookings SET status = ? WHERE booking_id = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, status);
+            stmt.setInt(2, bookingID);
+            return stmt.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
 

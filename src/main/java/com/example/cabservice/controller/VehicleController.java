@@ -31,7 +31,7 @@ public class VehicleController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        updateVehicleStatus(request, response);
+       addVehicle(request, response);
     }
 
     private void updateVehicleStatus(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -40,5 +40,15 @@ public class VehicleController extends HttpServlet {
 
         vehicleService.updateVehicleStatus(vehicleID, status);
         response.sendRedirect("vehicle?action=list&success=status_updated");
+    }
+    private void addVehicle(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String vehicleNumber = request.getParameter("vehicleNumber");
+        String model = request.getParameter("model");
+        int capacity = Integer.parseInt(request.getParameter("capacity"));
+        String status = request.getParameter("status");
+
+        Vehicle vehicle = new Vehicle(vehicleNumber, model, capacity, status);
+        vehicleService.addVehicle(vehicle);
+        response.sendRedirect("vehicle?action=list&success=added");
     }
 }

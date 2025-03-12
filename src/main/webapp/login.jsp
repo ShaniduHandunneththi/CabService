@@ -6,25 +6,28 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Admin Login</title>
+    <title>User Login</title>
+    <link rel="stylesheet" type="text/css" href="css\login.css">
 </head>
 <body>
-<h2>Admin Login</h2>
-<form action="auth?action=login" method="post">
-    <input type="hidden" name="action" value="login">
-    Username: <input type="text" name="username" required><br>
-    Password: <input type="password" name="password" required><br>
-    <button type="submit">Login</button>
-</form>
-<p style="color:red;">
-    <%= request.getParameter("error") != null ? request.getParameter("error") : "" %>
-</p>
-
-<div style="margin-top: 10px;">
-    <p>Don't have an account? <a href="user-register.jsp">Register here</a></p>
+<div class="login-container">
+    <h2>User Login</h2>
+    <form action="auth?action=login" method="post">
+        <input type="hidden" name="action" value="login">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <p class="error-message">
+        <%= request.getParameter("error") != null ? request.getParameter("error") : "" %>
+    </p>
+    <div class="register-links">
+        <p>Don't have an account? <a href="user-register.jsp">Register here</a></p>
+        <p>Don't have a Driver account? <a href="register_driver.jsp">Register here</a></p>
+    </div>
 </div>
 </body>
-
 </html>

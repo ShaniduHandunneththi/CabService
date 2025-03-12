@@ -9,23 +9,33 @@
 <html>
 <head>
     <title>Driver Registration</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css\register_driver.css">
 </head>
 <body>
-<h2>Register as a Driver</h2>
-<form action="DriverController" method="post">
-    <input type="hidden" name="action" value="register">
-    <label>Username:</label>
-    <input type="text" name="username" required><br>
-    <label>Password:</label>
-    <input type="password" name="password" required><br>
-    <label>Email:</label>
-    <input type="email" name="email" required><br>
-    <label>Phone:</label>
-    <input type="text" name="phone" required><br>
-    <label>License Number:</label>
-    <input type="text" name="licenseNumber" required><br>
-    <button type="submit">Register</button>
-</form>
+<div class="registration-container">
+    <h2>Register as a Driver</h2>
+    <form action="driver" method="post">
+        <input type="hidden" name="action" value="register">
+
+        <label>Username:</label>
+        <input type="text" name="username" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Phone:</label>
+        <input type="text" name="phone" required>
+
+        <label>License Number:</label>
+        <input type="text" name="licenseNumber" required>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <a href="login.jsp">Back to Dashboard</a>
+</div>
 </body>
 </html>

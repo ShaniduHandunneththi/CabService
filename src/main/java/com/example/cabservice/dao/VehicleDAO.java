@@ -35,7 +35,7 @@ public class VehicleDAO {
     public void updateVehicleStatus(int vehicleID, String status) {
         String sql = "UPDATE vehicles SET Status = ? WHERE VehicleID = ?";
         try (Connection conn = DBConnection.getConnection();
-        PreparedStatement pstmt = conn.prepareStatement(sql);) {
+             PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
             pstmt.setString(1, status);
             pstmt.setInt(2, vehicleID);
@@ -52,6 +52,22 @@ public class VehicleDAO {
              PreparedStatement stmt = conn.prepareStatement(sql);) {
             stmt.setInt(1, vehicleID);
             stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        String sql = "INSERT INTO vehicles (VehicleNumber, Model, Capacity, Status) VALUES (?, ?, ?, ?)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, vehicle.getVehicleNumber());
+            pstmt.setString(2, vehicle.getModel());
+            pstmt.setInt(3, vehicle.getCapacity());
+            pstmt.setString(4, vehicle.getStatus());
+
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -18,4 +18,7 @@ public class VehicleService {
     public void deleteVehicle(int vehicleID) {
         vehicleDAO.deleteVehicle(vehicleID);
     }
+    public void addVehicle(Vehicle vehicle) {
+        vehicleDAO.addVehicle(vehicle);
+    }
 }

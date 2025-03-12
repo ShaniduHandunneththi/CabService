@@ -59,6 +59,8 @@
     %>
 </table>
 
+<a href="admin_dashboard.jsp">Back to Dashboard</a>
+
 <a href="add_vehicle.jsp">Add New Vehicle</a>
 </body>
 </html>

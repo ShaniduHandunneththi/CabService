@@ -46,6 +46,8 @@
     </select>
     <label>Date & Time:</label>
     <input type="datetime-local" name="bookingDate" required><br>
+    <label>📏 Distance (km):</label>
+    <input type="number" name="distance" step="0.1" required>
 
     <input type="submit" value="Confirm Booking">
 </form>

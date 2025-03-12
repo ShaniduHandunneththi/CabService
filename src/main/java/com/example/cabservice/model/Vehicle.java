@@ -15,6 +15,13 @@ public class Vehicle {
         this.status = status;
     }
 
+    public Vehicle(String vehicleNumber, String model, int capacity, String status) {
+        this.vehicleNumber = vehicleNumber;
+        this.model = model;
+        this.capacity = capacity;
+        this.status = status;
+    }
+
     public int getVehicleID() {
         return vehicleID;
     }

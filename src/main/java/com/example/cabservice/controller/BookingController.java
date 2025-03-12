@@ -96,17 +96,31 @@ public class BookingController extends HttpServlet {
             String dateTimeStr = request.getParameter("bookingDate");
             int vehicleID = Integer.parseInt(request.getParameter("vehicleID"));
             int driverId = Integer.parseInt(request.getParameter("driverID"));
+            double distance = Double.parseDouble(request.getParameter("distance"));
 
             try {
                 LocalDateTime bookingDate = LocalDateTime.parse(dateTimeStr, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"));
-                Booking booking = new Booking(customerID, pickupLocation, dropLocation,vehicleID, "Pending");
+                Booking booking = new Booking(customerID, pickupLocation, dropLocation,vehicleID,distance, "Pending");
                 booking.setDriverID(driverId);
+
 
                 bookingService.bookRide(booking);
                 response.sendRedirect("customer_dashboard.jsp?success=booked");
             } catch (Exception e) {
                 response.sendRedirect("bookaride.jsp?error=invalid_date");
             }
+            int bookingID = Integer.parseInt(request.getParameter("bookingID"));
+            String status = request.getParameter("status");
+
+            boolean updated = bookingService.updateBookingStatus(bookingID, status);
+
+            if (updated) {
+                request.setAttribute("message", "Booking status updated successfully.");
+            } else {
+                request.setAttribute("error", "Failed to update booking status.");
+            }
+
+            request.getRequestDispatcher("view_assigned_rides.jsp").forward(request, response);
         }
     }
 }

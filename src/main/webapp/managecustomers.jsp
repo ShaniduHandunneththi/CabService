@@ -19,12 +19,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Manage Customers</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css\managecustomers.css">
 </head>
 <body>
 <h2>Customer Management</h2>
 
-<table border="1">
+<table>
     <tr>
         <th>Customer ID</th>
         <th>Username</th>
@@ -54,10 +54,11 @@
 
                 <button type="submit">Update</button>
             </form>
-
         </td>
     </tr>
     <% } } %>
 </table>
+
+<a href="admin_dashboard.jsp">Back to Dashboard</a>
 </body>
 </html>

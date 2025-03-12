@@ -55,6 +55,7 @@
 <br>
 <form action="auth" method="post">
     <button type="submit">Logout</button>
+    <a href="customer_dashboard.jsp">Back to Dashboard</a>
     <input type="hidden" name="action" value="logout">
 </form>
 

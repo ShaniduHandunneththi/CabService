@@ -21,7 +21,13 @@ public class BookingService {
 
     }
 
+    public boolean updateBookingStatus(int bookingID, String status) {
+        return bookingDAO.updateStatus(bookingID, status);
+    }
+
     public void bookRide(Booking booking) {
+      double fare = booking.getDistance()* 2.5;
+      booking.setFare(fare);
         bookingDAO.addBooking(booking);
     }
     public List<Booking> getBookingsByCustomer(int customerId) {

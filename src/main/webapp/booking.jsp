@@ -18,12 +18,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Manage Bookings</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Include CSS file -->
+    <link rel="stylesheet" href="css\booking.css">
 </head>
 <body>
 <h2>Manage Bookings</h2>
 
-<table border="1">
+<table>
     <tr>
         <th>Booking ID</th>
         <th>Customer ID</th>
@@ -44,10 +44,10 @@
         <td><%= booking.getDropLocation() %></td>
         <td><%= booking.getBookingDate() %></td>
         <td><%= booking.getStatus() %></td>
-
     </tr>
     <% } %>
 </table>
 
+<a href="admin_dashboard.jsp">Back to Dashboard</a>
 </body>
 </html>

@@ -54,6 +54,8 @@
     <% } } %>
 </table>
 
-<a href="add_driver.jsp">Add New Driver</a>
+<a href="admin_dashboard.jsp">Back to Dashboard</a>
+
+<a href="add_vehicle.jsp">Add New Driver</a>
 </body>
 </html>

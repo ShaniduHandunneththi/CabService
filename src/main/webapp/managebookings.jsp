@@ -43,6 +43,6 @@
     <% }} %>
 </table>
 
-
+<a href="customer_dashboard.jsp">Back to Dashboard</a>
 </body>
 </html>
