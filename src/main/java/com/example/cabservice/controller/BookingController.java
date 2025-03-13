@@ -109,20 +109,12 @@ public class BookingController extends HttpServlet {
             } catch (Exception e) {
                 response.sendRedirect("bookaride.jsp?error=invalid_date");
             }
-            int bookingID = Integer.parseInt(request.getParameter("bookingID"));
-            String status = request.getParameter("status");
 
-            boolean updated = bookingService.updateBookingStatus(bookingID, status);
-
-            if (updated) {
-                request.setAttribute("message", "Booking status updated successfully.");
-            } else {
-                request.setAttribute("error", "Failed to update booking status.");
-            }
-
-            request.getRequestDispatcher("view_assigned_rides.jsp").forward(request, response);
         }
+
     }
+
+
 }
 
 

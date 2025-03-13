@@ -10,15 +10,17 @@
 <%
     List<Booking> rideHistory = (List<Booking>) request.getAttribute("rideHistory");
 %>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Ride History</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css\ride_history.css">
 </head>
 <body>
+
 <h2>Your Ride History</h2>
 
-<table border="1">
+<table>
     <tr>
         <th>Booking ID</th>
         <th>Vehicle ID</th>
@@ -27,7 +29,7 @@
         <th>Booking Date</th>
         <th>Status</th>
     </tr>
-    <% if (rideHistory != null) { %>
+    <% if (rideHistory != null && !rideHistory.isEmpty()) { %>
     <% for (Booking booking : rideHistory) { %>
     <tr>
         <td><%= booking.getBookingID() %></td>
@@ -44,5 +46,6 @@
 </table>
 
 <a href="driver_dashboard.jsp">Back to Dashboard</a>
+
 </body>
 </html>

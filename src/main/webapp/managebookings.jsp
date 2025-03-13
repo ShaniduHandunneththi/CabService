@@ -12,13 +12,16 @@
 %>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Manage Bookings</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css\managebookings.css"> <!-- Link to the CSS file -->
 </head>
 <body>
-<h2>My Bookings</h2>
 
-<table border="1">
+<h2>🚖 My Bookings</h2>
+
+<table>
+    <thead>
     <tr>
         <th>Booking ID</th>
         <th>Pickup Location</th>
@@ -26,10 +29,10 @@
         <th>Date</th>
         <th>Driver</th>
         <th>Status</th>
-
     </tr>
-
-    <% if(bookings != null){
+    </thead>
+    <tbody>
+    <% if (bookings != null && !bookings.isEmpty()) {
         for (Booking booking : bookings) { %>
     <tr>
         <td><%= booking.getBookingID() %></td>
@@ -38,11 +41,16 @@
         <td><%= booking.getBookingDate() %></td>
         <td><%= booking.getDriverID() %></td>
         <td><%= booking.getStatus() %></td>
-
     </tr>
-    <% }} %>
+    <% } } else { %>
+    <tr>
+        <td colspan="6">No bookings available</td>
+    </tr>
+    <% } %>
+    </tbody>
 </table>
 
-<a href="customer_dashboard.jsp">Back to Dashboard</a>
+<a href="customer_dashboard.jsp" class="btn">⬅ Back to Dashboard</a>
+
 </body>
 </html>

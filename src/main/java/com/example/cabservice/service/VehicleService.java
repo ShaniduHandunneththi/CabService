@@ -21,4 +21,7 @@ public class VehicleService {
     public void addVehicle(Vehicle vehicle) {
         vehicleDAO.addVehicle(vehicle);
     }
+
+    public void changeDriverStatus(int i, String inactive) {
+    }
 }

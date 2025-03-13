@@ -53,6 +53,9 @@ public class Driver {
         this.email = email;
     }
 
+    public Driver(int i, String johnDoe) {
+    }
+
     public int getUserID() {
         return userID;
     }

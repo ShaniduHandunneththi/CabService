@@ -40,6 +40,7 @@ public class BookingService {
     public List<Booking> getBookingsByDriver(int driverId) {
         return bookingDAO.getBookingsByDriver(driverId);
     }
+
 }
 
 

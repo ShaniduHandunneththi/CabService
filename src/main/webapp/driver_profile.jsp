@@ -14,33 +14,38 @@
 <head>
   <meta charset="UTF-8">
   <title>Driver Profile</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css\driver_profile.css">
 </head>
 <body>
+
 <h2>Driver Profile</h2>
 
-<p><%= message%></p>
+<% if (message != null && !message.isEmpty()) { %>
+<p><%= message %></p>
+<% } %>
+
 <form action="driver-profile" method="post">
   <input type="hidden" name="userId" value="<%= driver.getUserID() %>">
 
   <label>Username:</label>
-  <input type="text" name="username" value="<%= driver.getUsername() %>" readonly><br>
+  <input type="text" name="username" value="<%= driver.getUsername() %>" readonly>
 
   <label>Email:</label>
-  <input type="email" name="email" value="<%= driver.getEmail() %>" required><br>
+  <input type="email" name="email" value="<%= driver.getEmail() %>" required>
 
   <label>Phone:</label>
-  <input type="text" name="phone" value="<%= driver.getPhone() %>" required><br>
+  <input type="text" name="phone" value="<%= driver.getPhone() %>" required>
 
   <label>License Number:</label>
-  <input type="text" name="licenseNumber" value="<%= driver.getLicenseNumber() %>" required><br>
+  <input type="text" name="licenseNumber" value="<%= driver.getLicenseNumber() %>" required>
 
   <label>Password:</label>
-  <input type="password" name="password" value=""><br>
+  <input type="password" name="password">
 
   <input type="submit" value="Update Profile">
 </form>
 
 <a href="driver_dashboard.jsp">Back to Dashboard</a>
+
 </body>
 </html>

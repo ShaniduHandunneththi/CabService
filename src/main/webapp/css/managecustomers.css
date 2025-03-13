@@ -1,0 +1,96 @@
+/* General Page Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Heading */
+h2 {
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 90%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #007bff;
+    color: white;
+    text-transform: uppercase;
+}
+
+tr:hover {
+    background: #f1f1f1;
+}
+
+/* Status Dropdown */
+select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Update Button */
+button {
+    padding: 8px 12px;
+    border: none;
+    background: #28a745;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* Back to Dashboard Button */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    background: #dc3545;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+a:hover {
+    background: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}

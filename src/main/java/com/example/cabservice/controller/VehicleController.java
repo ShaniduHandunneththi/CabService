@@ -31,7 +31,14 @@ public class VehicleController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       addVehicle(request, response);
+        String action = request.getParameter("action");
+
+        if(action.equals("add")) {
+            addVehicle(request, response);
+        }
+        else if(action.equals("update")) {
+            updateVehicleStatus(request, response);
+        }
     }
 
     private void updateVehicleStatus(HttpServletRequest request, HttpServletResponse response) throws IOException {

@@ -14,23 +14,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Driver Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css\driver_dashboard.css">
 </head>
 <body>
+
 <h2>Welcome, <%= user.getUsername() %> (Driver)</h2>
 
 <ul>
-    <li><a href="driver-bookings">View Assigned Rides</a></li>
-    <li><a href="ride-history">Ride History & Earnings</a></li>
-    <li><a href="driver-profile">Profile & Account Management</a></li>
+    <li><a href="driver-bookings">📋 View Assigned Rides</a></li>
+    <li><a href="ride-history">📊 Ride History & Earnings</a></li>
+    <li><a href="driver-profile">👤 Profile & Account Management</a></li>
     <li>
         <form action="admin" method="post">
             <input type="hidden" name="action" value="logout">
-            <button type="submit">Logout</button>
+            <button type="submit">🚪 Logout</button>
         </form>
     </li>
 </ul>
-
 
 </body>
 </html>

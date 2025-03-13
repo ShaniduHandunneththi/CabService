@@ -24,4 +24,20 @@ public class DriverBookingController extends HttpServlet {
         req.setAttribute("bookings", bookings);
         req.getRequestDispatcher("view_assigned_rides.jsp").forward(req, resp);
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+        int bookingID = Integer.parseInt(request.getParameter("bookingID"));
+        String status = request.getParameter("status");
+
+        boolean updated = bookingService.updateBookingStatus(bookingID, status);
+
+        if (updated) {
+            request.setAttribute("message", "Booking status updated successfully.");
+        } else {
+            request.setAttribute("error", "Failed to update booking status.");
+        }
+
+
+        resp.sendRedirect("driver-bookings");
+    }
 }

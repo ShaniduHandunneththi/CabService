@@ -7,7 +7,7 @@ public class Vehicle {
     private int capacity;
     private String status;
 
-    public Vehicle(int vehicleID, String vehicleNumber, String model, int capacity, String status) {
+    public Vehicle(int vehicleID, String vehicleNumber, String model, String status) {
         this.vehicleID = vehicleID;
         this.vehicleNumber = vehicleNumber;
         this.model = model;

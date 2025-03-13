@@ -11,12 +11,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Manage Vehicles</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Include CSS file -->
+    <link rel="stylesheet" href="css\managevehicles.css"> <!-- External CSS file -->
 </head>
 <body>
-<h2>Manage Vehicles</h2>
 
-<table border="1">
+<h2>Vehicles Management</h2>
+
+<table>
     <tr>
         <th>Vehicle ID</th>
         <th>Vehicle Number</th>
@@ -39,7 +40,7 @@
         <td><%= vehicle.getStatus() %></td>
         <td>
             <form action="vehicle" method="post">
-
+                <input type="hidden" name="action" value="update">
                 <input type="hidden" name="vehicleID" value="<%= vehicle.getVehicleID() %>">
 
                 <select name="status">
@@ -50,7 +51,6 @@
 
                 <button type="submit">Update</button>
             </form>
-
         </td>
     </tr>
     <%
@@ -59,8 +59,10 @@
     %>
 </table>
 
-<a href="admin_dashboard.jsp">Back to Dashboard</a>
+<div class="links">
+    <a href="admin_dashboard.jsp">Back to Dashboard</a>
+    <a href="add_vehicle.jsp">Add New Vehicle</a>
+</div>
 
-<a href="add_vehicle.jsp">Add New Vehicle</a>
 </body>
 </html>

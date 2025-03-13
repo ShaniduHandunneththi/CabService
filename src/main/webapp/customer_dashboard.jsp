@@ -11,9 +11,12 @@
 %>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="css\customer_dashboard.css">
 </head>
 <body>
+
 <h2>Welcome, <%= Customer.getUsername() %></h2>
 
 <ul>
@@ -26,5 +29,6 @@
     <input type="hidden" name="action" value="logout">
     <button type="submit">Logout</button>
 </form>
+
 </body>
 </html>

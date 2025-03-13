@@ -17,11 +17,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Manage Bookings</title>
+    <title>View Bookings</title>
     <link rel="stylesheet" href="css\booking.css">
 </head>
 <body>
-<h2>Manage Bookings</h2>
+<h2>View Bookings</h2>
 
 <table>
     <tr>

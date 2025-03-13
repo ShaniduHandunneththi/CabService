@@ -134,7 +134,7 @@ public class BookingDAO {
         return bookings;
     }
     public boolean updateStatus(int bookingID, String status) {
-        String query = "UPDATE bookings SET status = ? WHERE booking_id = ?";
+        String query = "UPDATE bookings SET Status = ? WHERE BookingID = ?";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
@@ -147,5 +147,6 @@ public class BookingDAO {
         }
         return false;
     }
+
 }
 

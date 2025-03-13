@@ -17,6 +17,9 @@ public class User {
         this.password = password;
     }
 
+    public User(String newUser, String newPass) {
+    }
+
     public int getUserID() { return userID; }
     public String getUsername() { return username; }
     public String getEmail() { return email; }

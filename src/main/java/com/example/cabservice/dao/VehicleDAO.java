@@ -22,7 +22,6 @@ public class VehicleDAO {
                         rs.getInt("VehicleID"),
                         rs.getString("VehicleNumber"),
                         rs.getString("Model"),
-                        rs.getInt("Capacity"),
                         rs.getString("Status")
                 ));
             }

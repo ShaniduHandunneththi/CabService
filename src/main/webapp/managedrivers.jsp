@@ -11,12 +11,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Manage Drivers</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Include CSS file -->
+    <link rel="stylesheet" href="css\managedrivers.css">
 </head>
 <body>
 <h2>Driver Management</h2>
 
-<table border="1">
+<table>
     <tr>
         <th>Driver ID</th>
         <th>Username</th>
@@ -48,7 +48,6 @@
 
                 <button type="submit">Update</button>
             </form>
-
         </td>
     </tr>
     <% } } %>
@@ -56,6 +55,5 @@
 
 <a href="admin_dashboard.jsp">Back to Dashboard</a>
 
-<a href="add_vehicle.jsp">Add New Driver</a>
 </body>
 </html>
