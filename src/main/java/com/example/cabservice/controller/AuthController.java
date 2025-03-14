@@ -40,21 +40,28 @@ public class AuthController extends HttpServlet {
         User user = authService.authenticate(username, password);
 
         if (user != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("userID", user.getUserID());
-            session.setAttribute("user", user);
-            session.setAttribute("role", user.getRole());
 
-            // Redirect based on role
-            if ("Admin".equals(user.getRole())) {
-                response.sendRedirect("admin_dashboard.jsp");
-            } else if ("Customer".equals(user.getRole())) {
-                response.sendRedirect("customer_dashboard.jsp");
-            } else if ("Driver".equals(user.getRole())) {
-                response.sendRedirect("driver_dashboard.jsp");
-            } else {
-                response.sendRedirect("index.jsp");
+            if(user.getStatus().equals("Banned")){
+                response.sendRedirect("login.jsp?error=Account Is Banned");
             }
+            else{
+                HttpSession session = request.getSession();
+                session.setAttribute("userID", user.getUserID());
+                session.setAttribute("user", user);
+                session.setAttribute("role", user.getRole());
+
+                // Redirect based on role
+                if ("Admin".equals(user.getRole())) {
+                    response.sendRedirect("admin_dashboard.jsp");
+                } else if ("Customer".equals(user.getRole())) {
+                    response.sendRedirect("customer_dashboard.jsp");
+                } else if ("Driver".equals(user.getRole())) {
+                    response.sendRedirect("driver_dashboard.jsp");
+                } else {
+                    response.sendRedirect("index.jsp");
+                }
+            }
+
         } else {
             response.sendRedirect("login.jsp?error=Invalid username or password");
         }

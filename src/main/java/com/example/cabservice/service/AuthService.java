@@ -18,7 +18,7 @@ public class AuthService {
 
     public User authenticate(String username, String password) {
         User user = userDAO.getUserByUsername(username);
-        System.out.println(user);
+
         if (user != null && user.getPassword().equals(password)) { // Replace with hashed password check
             return user;
         }

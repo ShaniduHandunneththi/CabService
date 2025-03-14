@@ -25,7 +25,7 @@
         <li><a href="vehicle?action=list">Manage Vehicles</a></li>
 
         <li>
-            <form action="admin" method="post">
+            <form action="auth" method="post">
                 <input type="hidden" name="action" value="logout">
                 <button type="submit">Logout</button>
             </form>

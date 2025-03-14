@@ -7,7 +7,9 @@ public class User {
     private String phoneNumber;
     private String password;
     private String role;
+    private String status;
 
+    public User(){}
     public User(String username, String phoneNumber, String email, String password, String role) {}
 
     public User(String username, String phoneNumber, String email, String password) {
@@ -41,5 +43,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -43,13 +43,14 @@ public class UserDAO {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                user = new User(username, phoneNumber, email, password, role);
+                user = new User();
                 user.setUserID(rs.getInt("UserID"));
                 user.setUsername(rs.getString("Username"));
                 user.setPassword(rs.getString("Password"));
                 user.setEmail(rs.getString("Email"));
                 user.setPhoneNumber(rs.getString("Phone"));
                 user.setRole(rs.getString("Role"));
+                user.setStatus(rs.getString("status"));
             }
         } catch (Exception e) {
             e.printStackTrace();

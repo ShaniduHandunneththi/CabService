@@ -25,7 +25,7 @@
     <li><a href="ride-history">📊 Ride History & Earnings</a></li>
     <li><a href="driver-profile">👤 Profile & Account Management</a></li>
     <li>
-        <form action="admin" method="post">
+        <form action="auth" method="post">
             <input type="hidden" name="action" value="logout">
             <button type="submit">🚪 Logout</button>
         </form>
